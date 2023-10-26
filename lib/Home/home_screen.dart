@@ -37,8 +37,8 @@ int selectedTap=0;
             items:[
 
           BottomNavigationBarItem(icon:Icon(Icons.home),label:'HOME',),
-              BottomNavigationBarItem(icon:Icon(Icons.search),label:'SEARCH' ),
-              BottomNavigationBarItem(icon:Icon(Icons.web_asset),label: 'BROWSER'),
+              BottomNavigationBarItem(icon:Icon(Icons.search),label:'SEARCH',backgroundColor: Colors.indigo ),
+              BottomNavigationBarItem(icon:Icon(Icons.web_asset),label: 'BROWSER',),
               BottomNavigationBarItem(icon:Icon(Icons.web_stories),label:'WATCHLIST'),
         ]),
       ),
