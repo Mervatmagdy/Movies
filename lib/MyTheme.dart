@@ -10,10 +10,11 @@ class MyTheme{
   static Color textGery=Color(0xffCBCBCB);
   static Color navigateColor=Color(0xff1A1A1A);
   static Color iconColor=Color(0xffB5B4B4);
+  static Color geryContainer=Color(0xff343534);
  static ThemeData lightTheme=ThemeData(
     textTheme:TextTheme(
       titleLarge:TextStyle(fontWeight: FontWeight.bold,fontSize:22,color:whiteColor),
-      titleMedium: TextStyle(fontWeight: FontWeight.bold,color:whiteColor,fontSize: 15),
+      titleMedium: TextStyle(fontWeight: FontWeight.bold,color:whiteColor,fontSize:18),
       titleSmall: TextStyle(fontWeight:FontWeight
       .w500,fontSize:15,color:textGery),
     ),
