@@ -5,7 +5,9 @@ import 'package:movies/MyTheme.dart';
 import 'package:movies/Search/search_tab.dart';
 import 'package:movies/WatchList/watch_tab.dart';
 
-void main(){
+void main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget{
