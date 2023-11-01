@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movies/Browser/browser_tab.dart';
+import 'package:movies/Model/added_movie_provider.dart';
+import 'package:movies/Model/firebase_utils.dart';
 import 'package:movies/MyTheme.dart';
 import 'package:movies/Search/search_tab.dart';
 import 'package:movies/WatchList/watch_tab.dart';
+import 'package:provider/provider.dart';
 
 import 'home_tab.dart';
 

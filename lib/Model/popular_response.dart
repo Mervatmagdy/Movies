@@ -8,6 +8,7 @@ PopularResponse popularResponseFromJson(String str) => PopularResponse.fromJson(
 String popularResponseToJson(PopularResponse data) => json.encode(data.toJson());
 class PopularResponse {
   PopularResponse({
+
  int? status_code,
     String?status_message,
     bool?success,
@@ -91,6 +92,7 @@ Results resultsFromJson(String str) => Results.fromJson(json.decode(str));
 String resultsToJson(Results data) => json.encode(data.toJson());
 class Results {
   Results({
+    this.added,
       bool? adult, 
       String? backdropPath, 
       List<num>? genreIds, 
@@ -122,6 +124,7 @@ class Results {
 }
 
   Results.fromJson(dynamic json) {
+    added=json['added'];
     _adult = json['adult'];
     _backdropPath = json['backdrop_path'];
     _genreIds = json['genre_ids'] != null ? json['genre_ids'].cast<num>() : [];
@@ -137,6 +140,7 @@ class Results {
     _voteAverage = json['vote_average'];
     _voteCount = json['vote_count'];
   }
+  bool? added;
   bool? _adult;
   String? _backdropPath;
   List<num>? _genreIds;
@@ -197,6 +201,7 @@ Results copyWith({  bool? adult,
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
+    map['added']=added;
     map['adult'] = _adult;
     map['backdrop_path'] = _backdropPath;
     map['genre_ids'] = _genreIds;

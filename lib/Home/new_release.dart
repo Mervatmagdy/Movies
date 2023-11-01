@@ -70,8 +70,8 @@ class _NewReleaseState extends State<NewRelease> {
                           padding:
                               EdgeInsets.only(bottom: 15, left: 5, right: 10),
                           child: MovieItem(
-                              pathImage:
-                                  viewModel.newReleaseList![index].posterPath!),
+                              movie:
+                                  viewModel.newReleaseList![index]),
                         );
                       },
                       itemCount: viewModel.newReleaseList!.length,

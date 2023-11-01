@@ -18,7 +18,7 @@ class PopularSliderViewModel extends ChangeNotifier{
        popularList=response.results!;
      }
     }catch(e){
-      errorMessage='no connection';
+      errorMessage=e.toString();
     }
     notifyListeners();
   }

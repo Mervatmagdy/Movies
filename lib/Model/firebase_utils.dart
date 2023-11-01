@@ -1,0 +1,24 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:movies/Model/popular_response.dart';
+
+class FirebaseUtils {
+  static CollectionReference<Results> getWatchListMovies() {
+    return FirebaseFirestore.instance.collection('users').withConverter<Results>(
+          fromFirestore: (snapshot, options) =>
+              Results.fromJson(snapshot.data()),
+          toFirestore: (value, options) =>value.toJson(),
+        );
+  }
+  static Future<void> addWatchListMovie(Results movie){
+  return getWatchListMovies().doc(movie.id.toString()).set(movie);
+  }
+static Future<void> updateWatchListMovie(Results movie,addedValue){
+    return getWatchListMovies().doc(movie.id.toString()).update({
+      'added':addedValue
+    });
+}
+static Future<void> deleteWatchListMovie(Results movie){
+    return getWatchListMovies().doc(movie.id.toString()).delete();
+}
+}

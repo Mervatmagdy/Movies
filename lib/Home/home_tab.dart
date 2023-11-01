@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movies/Home/new_release.dart';
 import 'package:movies/Home/popular_slider.dart';
 import 'package:movies/Home/recommended.dart';
+import 'package:movies/Model/added_movie_provider.dart';
+import 'package:provider/provider.dart';
 class HomeTab extends StatefulWidget {
   static const routeName='home_tab';
 

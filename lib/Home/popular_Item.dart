@@ -3,10 +3,16 @@ import 'package:movies/Home/movie-item.dart';
 import 'package:movies/Model/popular_response.dart';
 import 'package:movies/MyTheme.dart';
 
-class PopularItem extends StatelessWidget {
+class PopularItem extends StatefulWidget {
 
   Results index ;
   PopularItem({required this.index});
+
+  @override
+  State<PopularItem> createState() => _PopularItemState();
+}
+
+class _PopularItemState extends State<PopularItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,7 +24,7 @@ class PopularItem extends StatelessWidget {
               child: Image.network(
                 width: double.infinity,
                 "https://image.tmdb.org/t/p/w500" +
-                    index.backdropPath!,
+                    widget.index.backdropPath!,
               )),
           Center(
               heightFactor: 5,
@@ -31,7 +37,7 @@ class PopularItem extends StatelessWidget {
             // padding: EdgeInsets.symmetric(vertical:MediaQuery.sizeOf(context).height*0.15,horizontal:MediaQuery.sizeOf(context).width*0.04),
             child: Stack(
               children: [
-               MovieItem(pathImage:index.posterPath!),
+               MovieItem(movie:widget.index),
                 Padding(
                   padding: EdgeInsets.only(
                       top: MediaQuery.sizeOf(context).height * 0.21,
@@ -41,12 +47,12 @@ class PopularItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
-                       index.title!,
+                       widget.index.title!,
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       SizedBox(height: 5,),
                       Text(
-                        index.releaseDate!,
+                        widget.index.releaseDate!,
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize:11,color:MyTheme.iconColor),
                       ),
                     ],
