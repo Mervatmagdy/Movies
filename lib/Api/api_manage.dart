@@ -25,7 +25,7 @@ static Future<PopularResponse> getPopularApi()async{
 static Future<DiscoverResponse> getNewRelease()async{
   Uri url=Uri.https(ApiConstant.baseUrl,ApiConstant.discoverUrl,{
     'api_key':'001980e37e125ade2ff7f7ff71d9e93a',
-    'release_date.gte':'${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}'
+    'primary_release_year':'${DateTime.now().year}'
   });
 try{
   var response= await http.get(url);
