@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movies/Api/api_manage.dart';
 import 'package:movies/Home/movie-item.dart';
 import 'package:movies/Home/new_release_view_model.dart';
 import 'package:movies/MyTheme.dart';
+import 'package:movies/movie_details/movie_details_tap.dart';
 import 'package:provider/provider.dart';
 
 class NewRelease extends StatefulWidget {
@@ -69,9 +69,15 @@ class _NewReleaseState extends State<NewRelease> {
                         return Padding(
                           padding:
                               EdgeInsets.only(bottom: 15, left: 5, right: 10),
-                          child: MovieItem(
-                              pathImage:
-                                  viewModel.newReleaseList![index].posterPath!),
+                          child: InkWell(
+                            onTap: (){
+
+                              Navigator.of(context).pushNamed(MovieDetailsTab.routeName,arguments:viewModel.newReleaseList![index], );
+                              },
+                            child: MovieItem(
+                                pathImage:
+                                    viewModel.newReleaseList![index].posterPath!),
+                          ),
                         );
                       },
                       itemCount: viewModel.newReleaseList!.length,

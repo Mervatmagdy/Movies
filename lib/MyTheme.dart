@@ -26,6 +26,10 @@ class MyTheme{
      showUnselectedLabels: true,
      selectedItemColor:yellowColor,
      unselectedItemColor: iconColor
+   ),
+
+   appBarTheme: AppBarTheme(
+     backgroundColor: geryColor,
    )
   );
 }
