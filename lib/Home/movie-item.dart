@@ -13,7 +13,7 @@ MovieItem({required this.movie});
 }
 
 class _MovieItemState extends State<MovieItem> {
-
+bool isWatchList=false;
 @override
   void didChangeDependencies() {
   super.didChangeDependencies();
@@ -22,16 +22,13 @@ var provider=Provider.of<AddedMovieProvider>(context);
       provider.readWatchListFromFireStore(widget.movie);
     }
 
-    provider.checkExistMovie(widget.movie);
+    isWatchList=provider.checkExistMovie(widget.movie);
 
   }
 
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AddedMovieProvider>(context);
-    //     if(provider.watchListMovie.isEmpty){
-    //   provider.readWatchListFromFireStore(widget.movie);
-    // }
     return Container(
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
@@ -45,29 +42,10 @@ var provider=Provider.of<AddedMovieProvider>(context);
                   widget.movie.posterPath!,
             ),
             InkWell(
-
                 onTap: () {
-                  // provider.watchList(widget.movie);
-                  // provider.readWatchListFromFireStore();
-
-                  setState(() {
-                    if (widget.movie.added == null) {
-                      widget.movie.added=true;
-                      FirebaseUtils.updateWatchListMovie(widget.movie, true);
-                      FirebaseUtils.addWatchListMovie(widget.movie);
-                      provider.readWatchListFromFireStore(widget.movie);
-
-
-                    } else {
-                      widget.movie.added=false;
-                      FirebaseUtils.deleteWatchListMovie(widget.movie);
-                      provider.readWatchListFromFireStore(widget.movie);
-
-
-                    }
-                  });
+                 provider.onClickedWatchList(widget.movie, isWatchList);
                 },
-                child:widget.movie.added== true ? Image.asset(
+                child:isWatchList==true ? Image.asset(
                   'assets/afterAdd.png',) : Image.asset('assets/addIcon.png',)),
           ]),
     );

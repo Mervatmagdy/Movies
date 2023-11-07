@@ -3,22 +3,19 @@ import 'package:movies/Model/firebase_utils.dart';
 import 'package:movies/Model/popular_response.dart';
 
 class AddedMovieProvider extends ChangeNotifier {
-  // bool? checked;
+  onClickedWatchList(Results movie,bool isWatchList)async{
+    if (isWatchList==false) {
+      isWatchList=true;
+      await FirebaseUtils.addWatchListMovie(movie);
+      await readWatchListFromFireStore(movie);
+    } else {
+      isWatchList=false;
+      await FirebaseUtils.deleteWatchListMovie(movie);
+      await readWatchListFromFireStore(movie);
 
-  // void watchList(Results movie,value) {
-  //
-  //   // if (movie.added==null) {
-  //   //   movie.added =true;
-  //   //   FirebaseUtils.updateWatchListMovie(movie,true);
-  //   //   FirebaseUtils.addWatchListMovie(movie);
-  //   //
-  //   // } else{
-  //   //   movie.added=null;
-  //   //   FirebaseUtils.updateWatchListMovie(movie,null);
-  //   //   FirebaseUtils.deleteWatchListMovie(movie);
-  //   // }
-  //   notifyListeners();
-  // }
+
+    }
+  }
 
  List<Results> watchListMovie=[];
   Future<void> readWatchListFromFireStore(Results movie) async {
@@ -33,13 +30,10 @@ class AddedMovieProvider extends ChangeNotifier {
   checkExistMovie(Results movie) {
     for (int i = 0; i <watchListMovie.length; i++) {
       if (watchListMovie[i].id == movie.id) {
-       movie.added=true;
-       // watchListMovie[i].added=true;
-      }else{
-        movie.added=false;
+       return true;
       }
 
-    }
+    }return false;
 
   }
 

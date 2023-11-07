@@ -13,11 +13,6 @@ class FirebaseUtils {
   static Future<void> addWatchListMovie(Results movie){
   return getWatchListMovies().doc(movie.id.toString()).set(movie);
   }
-static Future<void> updateWatchListMovie(Results movie,addedValue){
-    return getWatchListMovies().doc(movie.id.toString()).update({
-      'added':addedValue
-    });
-}
 static Future<void> deleteWatchListMovie(Results movie){
     return getWatchListMovies().doc(movie.id.toString()).delete();
 }
