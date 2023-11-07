@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/Model/added_movie_provider.dart';
 import 'package:movies/Model/firebase_utils.dart';
 import 'package:movies/Model/popular_response.dart';
+import 'package:movies/movie_details/movie_details_tap.dart';
 import 'package:provider/provider.dart';
 
 class MovieItem extends StatefulWidget {
@@ -29,25 +30,41 @@ var provider=Provider.of<AddedMovieProvider>(context);
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AddedMovieProvider>(context);
-    return Container(
-      clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7)
+    // child: InkWell(
+    //   onTap: (){
+    //
+    //     Navigator.of(context).pushNamed(MovieDetailsTab.routeName,arguments:viewModel.newReleaseList![index], );
+    //   },
+    //   child: MovieItem(
+    //       pathImage:
+    //       viewModel.newReleaseList![index].posterPath!),
+    // ),
+    return InkWell(
+        onTap: (){
+
+          Navigator.of(context).pushNamed(MovieDetailsTab.routeName,arguments:widget.movie );
+        },
+      child: Container(
+
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(7)
+        ),
+        child: Stack(
+            children: [
+              Image.network(
+                scale: 4.1,
+                "https://image.tmdb.org/t/p/w500" +
+                    widget.movie.posterPath!,
+              ),
+              InkWell(
+                  onTap: () {
+                   provider.onClickedWatchList(widget.movie, isWatchList);
+                  },
+                  child:isWatchList==true ? Image.asset(
+                    'assets/afterAdd.png',) : Image.asset('assets/addIcon.png',)),
+            ]),
       ),
-      child: Stack(
-          children: [
-            Image.network(
-              scale: 4.1,
-              "https://image.tmdb.org/t/p/w500" +
-                  widget.movie.posterPath!,
-            ),
-            InkWell(
-                onTap: () {
-                 provider.onClickedWatchList(widget.movie, isWatchList);
-                },
-                child:isWatchList==true ? Image.asset(
-                  'assets/afterAdd.png',) : Image.asset('assets/addIcon.png',)),
-          ]),
     );
   }
 

@@ -5,8 +5,10 @@ import 'package:movies/Browser/browser_tab.dart';
 import 'package:movies/Home/home_screen.dart';
 import 'package:movies/Model/added_movie_provider.dart';
 import 'package:movies/MyTheme.dart';
+import 'package:movies/Search/search_delegate_view_model.dart';
 import 'package:movies/Search/search_tab.dart';
 import 'package:movies/WatchList/watch_tab.dart';
+import 'package:movies/movie_details/movie_details_tap.dart';
 import 'package:provider/provider.dart';
 
 void main()async{
@@ -17,9 +19,12 @@ void main()async{
    //     Settings(cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED);
    // await FirebaseFirestore.instance.disableNetwork();
 
-  runApp(ChangeNotifierProvider(
-    create: (context) =>AddedMovieProvider(),
-      child: MyApp()));
+  runApp(MultiProvider(providers:[
+      ChangeNotifierProvider(
+      create: (context) =>AddedMovieProvider(),)
+    ,ChangeNotifierProvider(create:(context) =>SearchDelegateViewModel(),)
+  ],child:MyApp(),));
+
 }
 class MyApp extends StatefulWidget{
   @override
@@ -30,16 +35,18 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+ return
+      MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute:HomeScreen.routeName ,
       routes:{
+        MovieDetailsTab.routeName:(context) => MovieDetailsTab(),
         HomeScreen.routeName:(context) => HomeScreen(),
         SearchTab.routeName:(context) => SearchTab(),
         BrowserTab.routeName:(context) => BrowserTab(),
         WatchTab.routeName:(context) => WatchTab()
       } ,
       theme:MyTheme.lightTheme,
-    );
+      );
   }
 }
