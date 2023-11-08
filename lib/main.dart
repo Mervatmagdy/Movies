@@ -11,6 +11,7 @@ import 'package:movies/WatchList/watch_tab.dart';
 import 'Browser/movie/movie_details.dart';
 import 'package:movies/movie_details/movie_details_tap.dart';
 import 'package:provider/provider.dart';
+import 'Browser/movie/movie_details.dart';
 
 void main()async{
    WidgetsFlutterBinding.ensureInitialized();
