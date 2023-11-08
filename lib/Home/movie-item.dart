@@ -47,8 +47,8 @@ var provider=Provider.of<AddedMovieProvider>(context);
               Image.network(
                 scale: 4.1,
 
-                "https://image.tmdb.org/t/p/w500" +
-                    widget.movie.posterPath!,
+                "https://image.tmdb.org/t/p/w500${widget.movie.posterPath}" +
+                   '',
               ),
               InkWell(
                   onTap: () {

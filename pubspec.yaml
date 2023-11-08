@@ -43,6 +43,7 @@ dependencies:
   favorite_button: ^0.0.4
   firebase_core: ^2.21.0
   cloud_firestore: ^4.12.2
+  flutter_native_splash: ^2.3.5
 dev_dependencies:
   flutter_test:
     sdk: flutter
