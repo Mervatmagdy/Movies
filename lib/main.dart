@@ -48,8 +48,6 @@ class _MyAppState extends State<MyApp> {
         BrowserTab.routeName:(context) => BrowserTab(),
         WatchTab.routeName:(context) => WatchTab(),
         MovieDetails.routeName:(context) => MovieDetails(),
-
-
       } ,
       theme:MyTheme.lightTheme,
       );

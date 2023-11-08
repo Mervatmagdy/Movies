@@ -263,18 +263,27 @@ class ProductionCompanies {
 
 class Genres {
   Genres({
+    this.status_message,
+    this.status_code,
       this.id, 
       this.name,});
 
   Genres.fromJson(dynamic json) {
+    status_code =json['status_code'];
+    status_message = json['status_message'];
     id = json['id'];
     name = json['name'];
+
   }
   int? id;
   String? name;
+  int?status_code;
+  String?status_message;
+
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
+
     map['id'] = id;
     map['name'] = name;
     return map;

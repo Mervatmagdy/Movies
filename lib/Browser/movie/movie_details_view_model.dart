@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movies/model/MovieDetailsResponse.dart';
+// import 'package:movies/model/MovieDetailsResponse.dart';
 import '../../api/api_manager.dart';
+import 'package:movies/Model/popular_response.dart';
+
 
 class MovieDetailsViewModel extends ChangeNotifier{
   List<Results>? moviesList;

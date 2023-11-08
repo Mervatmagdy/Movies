@@ -7,7 +7,9 @@ import 'package:provider/provider.dart';
 
 class MovieItem extends StatefulWidget {
 Results movie;
-MovieItem({required this.movie});
+double? scale;
+
+MovieItem({required this.movie,});
 
   @override
   State<MovieItem> createState() => _MovieItemState();
@@ -32,7 +34,6 @@ var provider=Provider.of<AddedMovieProvider>(context);
     var provider = Provider.of<AddedMovieProvider>(context);
     return InkWell(
         onTap: (){
-
           Navigator.of(context).pushNamed(MovieDetailsTab.routeName,arguments:widget.movie );
         },
       child: Container(
@@ -45,6 +46,7 @@ var provider=Provider.of<AddedMovieProvider>(context);
             children: [
               Image.network(
                 scale: 4.1,
+
                 "https://image.tmdb.org/t/p/w500" +
                     widget.movie.posterPath!,
               ),
