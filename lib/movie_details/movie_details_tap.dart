@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/Api/api_manage.dart';
-import 'package:movies/Model/details_response.dart';
+import 'package:movies/Model/details_responses.dart';
 import 'package:movies/Model/popular_response.dart';
 import 'package:movies/MyTheme.dart';
 import 'package:movies/movie_details/movie_details.dart';
@@ -24,6 +24,7 @@ class _MovieDetailsTabState extends State<MovieDetailsTab> {
   Genres? genres;
 
 
+
   @override
   void initState() {
     // TODO: implement initState
@@ -33,6 +34,7 @@ class _MovieDetailsTabState extends State<MovieDetailsTab> {
 
   @override
   Widget build(BuildContext context) {
+
     if(result == null) {
       result = ModalRoute
           .of(context)!
@@ -116,17 +118,17 @@ class _MovieDetailsTabState extends State<MovieDetailsTab> {
                               ),
                             ),
 
-                            InkWell(
-                              onTap: (){
-                                isSave == true?isSave = false:isSave = true;
-                                setState(() {
-
-                                });
-                              },
-                              child: isSave == true? Image.asset(
-                                "assets/afterAdd.png",
-                              ): Image.asset("assets/addIcon.png",),
-                            ) ,
+                            // InkWell(
+                            //   onTap: (){
+                            //     isSave == true?isSave = false:isSave = true;
+                            //     setState(() {
+                            //
+                            //     });
+                            //   },
+                            //   child: isSave == true? Image.asset(
+                            //     "assets/afterAdd.png",
+                            //   ): Image.asset("assets/addIcon.png",),
+                            // ) ,
                           ],
                         ),
                       ),
@@ -137,29 +139,6 @@ class _MovieDetailsTabState extends State<MovieDetailsTab> {
                         children: [
                           Row(
                             children: [
-                              Container(
-                                height: 25,
-                                width: 65,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    width: 2,
-                                    color: MyTheme.geryColor,
-                                  ),
-                                  borderRadius: BorderRadius.circular(5),
-                                  color: Colors.transparent,
-                                ),
-                                child: Center(
-                                  child:Text(
-                                    "${result?.originalLanguage}",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium!
-                                        .copyWith(
-                                        fontSize: 15, color: MyTheme.iconColor),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              ),
                               SizedBox(width: 5,),
                               Container(
                                 height: 25,
@@ -183,16 +162,18 @@ class _MovieDetailsTabState extends State<MovieDetailsTab> {
                           ),
                           SizedBox(height: 10,),
 
-                          SingleChildScrollView(
-                            child: Container(
+
+                             Container(
                               width: MediaQuery.of(context).size.width*0.48,
-                              // height: MediaQuery.of(context).size.width*0.6,
-                              child: Text(
-                                "${result?.overview}",textAlign: TextAlign.start,
-                                style: Theme.of(context).textTheme.titleSmall,
+                              height: MediaQuery.of(context).size.width*0.6,
+                              child: SingleChildScrollView(
+                                child: Text(
+                                  "${result?.overview}",textAlign: TextAlign.start,
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
                               ),
                             ),
-                          ),
+
                           SizedBox(height: 10,),
 
                           Row(
@@ -212,7 +193,7 @@ class _MovieDetailsTabState extends State<MovieDetailsTab> {
                       )
                     ],
                   ),
-
+                   SizedBox(height: 10,),
                    SimilarMovies(movie: result!),
                 ],
               ),

@@ -1,20 +1,32 @@
 import 'package:flutter/cupertino.dart';
 import 'package:movies/Api/api_manage.dart';
-import 'package:movies/Model/details_response.dart';
+import 'package:movies/Model/details_responses.dart';
 
 class MovieDetailsViewModel extends ChangeNotifier{
-  String? type;
+  List<Genres>? list;
   String? errorMessage;
+
 
   void getId(num? movieId)async{
 
-    var response = await ApiManage.getMovieDetailsById(id: movieId);
     try{
+      var response = await ApiManage.getMovieDetailsById(id: movieId);
       if(response?.status_code == 34){
         errorMessage = response?.status_message;
+        print("==============================");
+        print(errorMessage);
+        print("==============================");
+        print("==============================");
+
       }
       else{
-        type = response?.name;
+        list = response?.genres;
+        print("==============================");
+        print(list);
+        print("==============================");
+        print("==============================");
+
+
       }
     }catch(e){
       errorMessage = "Loading Error";

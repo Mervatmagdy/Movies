@@ -70,7 +70,8 @@ class _NewReleaseState extends State<NewRelease> {
                           padding:
                               EdgeInsets.only(bottom: 15, left: 5, right: 10),
                           child: MovieItem(
-                             movie: viewModel.newReleaseList![index]),
+                              movie:
+                              viewModel.newReleaseList![index]),
                         );
                         // child: InkWell(
                         //   onTap: (){

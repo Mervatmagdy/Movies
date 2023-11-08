@@ -1,12 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:movies/Api/api_manage.dart';
+import 'package:movies/Model/popular_response.dart';
 import 'package:movies/Model/samiler_response.dart';
 
 class SimilarMovieViewModel extends ChangeNotifier{
   String? errorMessage;
   List<Results>? movies;
 
-  void getSimilarMovies(String? id) async{
+  void getSimilarMovies(num? id) async{
     errorMessage= null;
     movies= null;
     notifyListeners();

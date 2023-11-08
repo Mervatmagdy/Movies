@@ -30,15 +30,6 @@ var provider=Provider.of<AddedMovieProvider>(context);
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AddedMovieProvider>(context);
-    // child: InkWell(
-    //   onTap: (){
-    //
-    //     Navigator.of(context).pushNamed(MovieDetailsTab.routeName,arguments:viewModel.newReleaseList![index], );
-    //   },
-    //   child: MovieItem(
-    //       pathImage:
-    //       viewModel.newReleaseList![index].posterPath!),
-    // ),
     return InkWell(
         onTap: (){
 
@@ -63,6 +54,7 @@ var provider=Provider.of<AddedMovieProvider>(context);
                   },
                   child:isWatchList==true ? Image.asset(
                     'assets/afterAdd.png',) : Image.asset('assets/addIcon.png',)),
+
             ]),
       ),
     );
