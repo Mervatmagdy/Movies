@@ -18,7 +18,7 @@ List<Widget>tabs=[HomeTab(),SearchTab(),BrowserTab(),WatchTab()];
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-int selectedTap=0;
+int selectedTap = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ int selectedTap=0;
             },
             items:[
 
-          BottomNavigationBarItem(icon:Icon(Icons.home),label:'HOME',),
+              BottomNavigationBarItem(icon:Icon(Icons.home),label:'HOME',),
               BottomNavigationBarItem(icon:Icon(Icons.search),label:'SEARCH', ),
               BottomNavigationBarItem(icon:Icon(Icons.web_asset),label: 'BROWSER',),
               BottomNavigationBarItem(icon:Icon(Icons.web_stories),label:'WATCHLIST'),

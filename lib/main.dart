@@ -8,6 +8,7 @@ import 'package:movies/MyTheme.dart';
 import 'package:movies/Search/search_delegate_view_model.dart';
 import 'package:movies/Search/search_tab.dart';
 import 'package:movies/WatchList/watch_tab.dart';
+import 'Browser/movie/movie_details.dart';
 import 'package:movies/movie_details/movie_details_tap.dart';
 import 'package:provider/provider.dart';
 
@@ -44,9 +45,13 @@ class _MyAppState extends State<MyApp> {
         HomeScreen.routeName:(context) => HomeScreen(),
         SearchTab.routeName:(context) => SearchTab(),
         BrowserTab.routeName:(context) => BrowserTab(),
-        WatchTab.routeName:(context) => WatchTab()
+        WatchTab.routeName:(context) => WatchTab(),
+        MovieDetails.routeName:(context) => MovieDetails(),
+
+
       } ,
       theme:MyTheme.lightTheme,
       );
   }
+
 }
