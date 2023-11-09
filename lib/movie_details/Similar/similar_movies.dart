@@ -52,7 +52,7 @@ class _SimilarMoviesState extends State<SimilarMovies> {
                     Text("SomeThing went Wrong",style: TextStyle(color: Colors.white),),
                     ElevatedButton(
                         onPressed: () {
-                          ApiManage.getSimilarMovies(id:widget.movie.id);
+                         similarMovieViewModel.getSimilarMovies(widget.movie.id);
                           setState(() {
                             print(widget.movie.id);
                             print("------------------------------------");

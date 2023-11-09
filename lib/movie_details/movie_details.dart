@@ -39,10 +39,22 @@ class _MovieDetailsState extends State<MovieDetails> {
             print(movieDetailsViewModel.errorMessage);
             print("-------------------------");
 
-            return Text(
-              "Wrong",
-              style: TextStyle(color: Colors.white),
-            );
+            return
+              Column(
+                children: [
+                  Text("SomeThing went Wrong",style: TextStyle(color: Colors.white),),
+                  ElevatedButton(
+                      onPressed: () {
+                        movieDetailsViewModel.getId(widget.results.id);
+                        setState(() {
+                          print(movieDetailsViewModel.errorMessage);
+                        });
+                      },
+                      child: Text("Try Again"))
+                ],
+              );
+
+
           } else if (movieDetailsViewModel.genres == null) {
             return CircularProgressIndicator(
               color: MyTheme.yellowColor,

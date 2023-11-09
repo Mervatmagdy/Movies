@@ -8,7 +8,8 @@ class MovieDetailsViewModel extends ChangeNotifier{
 
 
   void getId(num ?movieId)async{
-
+    genres=null;
+    errorMessage = null;
     notifyListeners();
 
     try{
