@@ -31,7 +31,7 @@ class _SimilarMoviesState extends State<SimilarMovies> {
       decoration: BoxDecoration(
           color: MyTheme.geryColor,
       ),
-      height:MediaQuery.sizeOf(context).height*0.55,
+      height:MediaQuery.sizeOf(context).height*0.70,
       child: ChangeNotifierProvider(
           create: (context) => widget.similarMovieViewModel,
       child: Column(
